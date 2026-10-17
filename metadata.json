@@ -1,0 +1,6 @@
+{
+  "name": "BITS MTech AIML Notice Board",
+  "description": "Digital academic notice board for BITS Pilani M.Tech AI & ML cohort featuring live countdowns for ongoing and upcoming events, subject filtering, and template JSON configuration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
