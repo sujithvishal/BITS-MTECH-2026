@@ -2,7 +2,7 @@
   {
     "id": "event-ml-quiz2",
     "title": "Machine Learning: Quiz 2",
-    "miniDescription": "Online proctored Quiz 2 assessment window is live for all enrolled students.",
+    "miniDescription": "",
     "category": "SUBJECT",
     "subject": "MACHINE_LEARNING",
     "startDate": "2026-10-16T00:01:00+05:30",
@@ -11,7 +11,7 @@
   {
     "id": "event-ism-quiz2",
     "title": "ISM: Quiz 2",
-    "miniDescription": "Information Security Management Quiz 2 online assessment window.",
+    "miniDescription": "",
     "category": "SUBJECT",
     "subject": "ISM",
     "startDate": "2026-10-23T18:00:00+05:30",
@@ -20,7 +20,7 @@
   {
     "id": "event-ec3-regular",
     "title": "EC3 Exam (Regular)",
-    "miniDescription": "Semester-end comprehensive evaluation component EC-3 regular examination window.",
+    "miniDescription": "",
     "category": "GENERAL",
     "subject": "GENERAL",
     "startDate": "2026-12-05T09:00:00+05:30",
@@ -29,7 +29,7 @@
   {
     "id": "event-ec3-makeup",
     "title": "EC3 Exam (Makeup)",
-    "miniDescription": "Makeup evaluation component EC-3 examination for eligible students with prior approval.",
+    "miniDescription": "",
     "category": "GENERAL",
     "subject": "GENERAL",
     "startDate": "2026-12-12T09:00:00+05:30",
