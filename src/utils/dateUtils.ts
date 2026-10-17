@@ -143,6 +143,51 @@ export function formatEventSchedule(startDateIso: string, endDateIso: string): {
 }
 
 /**
+ * Format ISO date string into UTC string for Google Calendar URL (YYYYMMDDTHHmmssZ).
+ */
+export function formatToGoogleCalendarUtc(dateStr: string): string {
+  const d = new Date(dateStr);
+  const pad = (n: number) => (n < 10 ? '0' + n : n.toString());
+  return (
+    d.getUTCFullYear().toString() +
+    pad(d.getUTCMonth() + 1) +
+    pad(d.getUTCDate()) +
+    'T' +
+    pad(d.getUTCHours()) +
+    pad(d.getUTCMinutes()) +
+    pad(d.getUTCSeconds()) +
+    'Z'
+  );
+}
+
+/**
+ * Generates Google Calendar web URL.
+ * - For ongoing events: only the end date (deadline).
+ * - For upcoming events: both start and end dates.
+ */
+export function createGoogleCalendarUrl(
+  event: NoticeEvent,
+  status: 'ONGOING' | 'UPCOMING'
+): string {
+  const title = encodeURIComponent(event.title);
+  const details = encodeURIComponent(event.miniDescription ? `${event.title} - ${event.miniDescription}` : event.title);
+
+  const endUtc = formatToGoogleCalendarUtc(event.endDate);
+
+  let datesParam: string;
+  if (status === 'ONGOING') {
+    // For ongoing events, use only the end date (marks deadline)
+    datesParam = `${endUtc}/${endUtc}`;
+  } else {
+    // For upcoming events, use both start and end date
+    const startUtc = formatToGoogleCalendarUtc(event.startDate);
+    datesParam = `${startUtc}/${endUtc}`;
+  }
+
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${datesParam}&details=${details}`;
+}
+
+/**
  * Computes progress percentage for ongoing event (0 to 100).
  */
 export function getOngoingProgress(startDateIso: string, endDateIso: string, now: Date = new Date()): number {

@@ -5,8 +5,8 @@
 
 import React from 'react';
 import { NoticeEvent, SUBJECT_METADATA, SubjectEnum } from '../types/notice';
-import { calculateCountdown, formatEventSchedule } from '../utils/dateUtils';
-import { Calendar, Clock } from 'lucide-react';
+import { calculateCountdown, formatEventSchedule, createGoogleCalendarUrl } from '../utils/dateUtils';
+import { Calendar, Clock, CalendarPlus } from 'lucide-react';
 
 interface NoticeCardProps {
   event: NoticeEvent;
@@ -28,6 +28,7 @@ export const NoticeCard: React.FC<NoticeCardProps> = ({
   const schedule = formatEventSchedule(event.startDate, event.endDate);
   const ongoingCountdown = calculateCountdown(event.endDate, currentTime);
   const upcomingCountdown = calculateCountdown(event.startDate, currentTime);
+  const googleCalendarUrl = createGoogleCalendarUrl(event, status);
 
   return (
     <article className="bg-white border border-slate-200/90 rounded-2xl p-4 sm:p-5 hover:border-slate-300 transition-colors shadow-xs flex flex-col justify-between">
@@ -79,31 +80,49 @@ export const NoticeCard: React.FC<NoticeCardProps> = ({
           {event.title}
         </h3>
 
-        {/* Mini Description */}
-        <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
-          {event.miniDescription}
-        </p>
+        {/* Mini Description (only rendered if present) */}
+        {event.miniDescription ? (
+          <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            {event.miniDescription}
+          </p>
+        ) : null}
       </div>
 
-      {/* Start & End Dates (no location, no link) */}
-      <div className="mt-4 pt-3 border-t border-slate-100 space-y-1.5 text-xs text-slate-600">
-        <div className="flex items-start sm:items-center gap-2">
-          <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5 sm:mt-0" />
-          <div className="flex flex-wrap items-center gap-1">
-            <span className="font-medium text-slate-700">Starts:</span>
-            <span className="font-mono tabular-nums">{schedule.startFormatted}</span>
+      <div>
+        {/* Start & End Dates */}
+        <div className="mt-4 pt-3 border-t border-slate-100 space-y-1.5 text-xs text-slate-600">
+          <div className="flex items-start sm:items-center gap-2">
+            <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5 sm:mt-0" />
+            <div className="flex flex-wrap items-center gap-1">
+              <span className="font-medium text-slate-700">Starts:</span>
+              <span className="font-mono tabular-nums">{schedule.startFormatted}</span>
+            </div>
+          </div>
+          
+          <div className="flex items-start sm:items-center gap-2">
+            <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5 sm:mt-0" />
+            <div className="flex flex-wrap items-center gap-1">
+              <span className="font-medium text-slate-700">Ends:</span>
+              <span className="font-mono tabular-nums">{schedule.endFormatted}</span>
+              {schedule.durationLabel && (
+                <span className="text-slate-400 font-normal">({schedule.durationLabel})</span>
+              )}
+            </div>
           </div>
         </div>
-        
-        <div className="flex items-start sm:items-center gap-2">
-          <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5 sm:mt-0" />
-          <div className="flex flex-wrap items-center gap-1">
-            <span className="font-medium text-slate-700">Ends:</span>
-            <span className="font-mono tabular-nums">{schedule.endFormatted}</span>
-            {schedule.durationLabel && (
-              <span className="text-slate-400 font-normal">({schedule.durationLabel})</span>
-            )}
-          </div>
+
+        {/* Add to Google Calendar Button */}
+        <div className="mt-3.5 pt-3 border-t border-slate-100">
+          <a
+            href={googleCalendarUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full inline-flex items-center justify-center gap-2 py-2 px-3 bg-slate-50 hover:bg-slate-100 active:bg-slate-200 border border-slate-200/90 rounded-xl text-xs font-semibold text-slate-800 hover:text-slate-900 transition-colors shadow-2xs"
+            title={status === 'ONGOING' ? 'Add deadline to Google Calendar' : 'Add event to Google Calendar'}
+          >
+            <CalendarPlus className="w-3.5 h-3.5 text-blue-700 shrink-0" />
+            <span>Add to Calendar</span>
+          </a>
         </div>
       </div>
     </article>
