@@ -9,6 +9,15 @@
     "endDate": "2026-10-22T23:59:00+05:30"
   },
   {
+    "id": "event-mfml-assignment2",
+    "title": "MFML: Assignment 2",
+    "miniDescription": "",
+    "category": "SUBJECT",
+    "subject": "MFML",
+    "startDate": "2026-10-20T19:00:00+05:30",
+    "endDate": "2026-10-30T19:00:00+05:30"
+  },
+  {
     "id": "event-ism-quiz2",
     "title": "ISM: Quiz 2",
     "miniDescription": "",
