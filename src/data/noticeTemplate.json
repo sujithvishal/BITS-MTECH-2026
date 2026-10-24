@@ -27,6 +27,15 @@
     "endDate": "2026-10-25T23:55:00+05:30"
   },
   {
+    "id": "event-ism-assignment2",
+    "title": "ISM: Assignment 2",
+    "miniDescription": "",
+    "category": "SUBJECT",
+    "subject": "ISM",
+    "startDate": "2026-10-25T18:00:00+05:30",
+    "endDate": "2026-11-07T23:59:00+05:30"
+  },
+  {
     "id": "event-ec3-regular",
     "title": "EC3 Exam (Regular)",
     "miniDescription": "",
