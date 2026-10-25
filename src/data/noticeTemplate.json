@@ -36,6 +36,15 @@
     "endDate": "2026-11-07T23:59:00+05:30"
   },
   {
+    "id": "event-ml-assignment2",
+    "title": "Machine Learning: Assignment 2",
+    "miniDescription": "",
+    "category": "SUBJECT",
+    "subject": "MACHINE_LEARNING",
+    "startDate": "2026-10-26T00:01:00+05:30",
+    "endDate": "2026-11-08T23:59:00+05:30"
+  },
+  {
     "id": "event-ec3-regular",
     "title": "EC3 Exam (Regular)",
     "miniDescription": "",
