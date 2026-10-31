@@ -45,6 +45,15 @@
     "endDate": "2026-11-08T23:59:00+05:30"
   },
   {
+    "id": "event-mfml-quiz2",
+    "title": "MFML: Quiz 2",
+    "miniDescription": "",
+    "category": "SUBJECT",
+    "subject": "MFML",
+    "startDate": "2026-11-01T19:00:00+05:30",
+    "endDate": "2026-11-08T19:00:00+05:30"
+  },
+  {
     "id": "event-ec3-regular",
     "title": "EC3 Exam (Regular)",
     "miniDescription": "",
