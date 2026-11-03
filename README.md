@@ -31,7 +31,7 @@ The app references a strict, type-safe `SubjectEnum`:
 
 | Enum Key | Display Name |
 | :--- | :--- |
-| `DEEP_LEARNING` | Deep Learning |
+| `DNN` | DNN |
 | `MACHINE_LEARNING` | Machine Learning |
 | `ISM` | ISM |
 | `MFML` | MFML |

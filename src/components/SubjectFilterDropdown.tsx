@@ -20,7 +20,7 @@ export const SubjectFilterDropdown: React.FC<SubjectFilterDropdownProps> = ({
   subjectCounts,
   totalCount,
 }) => {
-  const subjectsList = Object.values(SubjectEnum);
+  const subjectsList = Array.from(new Set(Object.values(SubjectEnum)));
 
   return (
     <div className="bg-white border border-slate-200/90 rounded-2xl p-3.5 sm:p-4 shadow-xs">

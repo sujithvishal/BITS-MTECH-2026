@@ -54,6 +54,15 @@
     "endDate": "2026-11-08T19:00:00+05:30"
   },
   {
+    "id": "event-dnn-quiz2",
+    "title": "DNN - Quiz 2",
+    "miniDescription": "",
+    "category": "SUBJECT",
+    "subject": "DNN",
+    "startDate": "2026-11-03T19:00:00+05:30",
+    "endDate": "2026-11-06T18:59:00+05:30"
+  },
+  {
     "id": "event-ec3-regular",
     "title": "EC3 Exam (Regular)",
     "miniDescription": "",

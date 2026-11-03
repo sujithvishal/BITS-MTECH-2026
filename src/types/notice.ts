@@ -8,7 +8,8 @@
  */
 export enum SubjectEnum {
   ALL = 'ALL',
-  DEEP_LEARNING = 'DEEP_LEARNING',
+  DNN = 'DNN',
+  DEEP_LEARNING = 'DNN',
   MACHINE_LEARNING = 'MACHINE_LEARNING',
   ISM = 'ISM',
   MFML = 'MFML',
@@ -52,10 +53,10 @@ export const SUBJECT_METADATA: Record<SubjectEnum, SubjectMeta> = {
     name: 'All Subjects',
     shortName: 'All',
   },
-  [SubjectEnum.DEEP_LEARNING]: {
-    enumValue: SubjectEnum.DEEP_LEARNING,
-    name: 'Deep Learning',
-    shortName: 'Deep Learning',
+  [SubjectEnum.DNN]: {
+    enumValue: SubjectEnum.DNN,
+    name: 'DNN',
+    shortName: 'DNN',
   },
   [SubjectEnum.MACHINE_LEARNING]: {
     enumValue: SubjectEnum.MACHINE_LEARNING,
